@@ -220,7 +220,7 @@ func normalizeFields(fields []string, options ParseOption) ([]string, error) {
 }
 
 var standardParser = NewParser(
-	Minute | Hour | Dom | Month | Dow | Descriptor,
+	SecondOptional | Minute | Hour | Dom | Month | Dow | Descriptor,
 )
 
 // ParseStandard returns a new crontab schedule representing the given

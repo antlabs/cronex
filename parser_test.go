@@ -332,7 +332,7 @@ func TestStandardSpecSchedule(t *testing.T) {
 		},
 		{
 			expr: "* * * *",
-			err:  "expected exactly 5 fields",
+			err:  "expected 5 to 6 fields",
 		},
 	}
 
