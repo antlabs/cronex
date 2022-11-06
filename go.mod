@@ -3,7 +3,7 @@ module github.com/antlabs/cronex
 go 1.19
 
 require (
-	github.com/antlabs/timer v0.0.7
+	github.com/antlabs/timer v0.0.8
 	github.com/stretchr/testify v1.6.1
 )
 
