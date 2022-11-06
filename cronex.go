@@ -5,6 +5,7 @@ package cronex
 import "github.com/antlabs/timer"
 
 type TimerNoder = timer.TimeNoder
+type Option = timer.Option
 
 // cronex
 type Cronex struct {
@@ -12,9 +13,12 @@ type Cronex struct {
 }
 
 // 初始化一个cronex
-func New() *Cronex {
+func New(opt ...Option) *Cronex {
+	if len(opt) == 0 {
+		opt = append(opt, timer.WithMinHeap())
+	}
 	return &Cronex{
-		tm: timer.NewTimer(timer.WithMinHeap()),
+		tm: timer.NewTimer(opt...),
 	}
 }
 
