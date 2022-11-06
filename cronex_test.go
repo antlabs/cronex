@@ -2,6 +2,7 @@ package cronex
 
 import (
 	"fmt"
+	"sync/atomic"
 	"testing"
 	"time"
 
@@ -60,6 +61,7 @@ func Test_Cronex(t *testing.T) {
 	assert.NotEqual(t, count, 1, fmt.Sprintf("callback没有调用"))
 }
 
+// 测试下Next函数的时间可正确
 func Test_Cronex_ParseNext(t *testing.T) {
 
 	var schedule timer.Next
@@ -81,4 +83,23 @@ func Test_Cronex_ParseNext(t *testing.T) {
 			return
 		}
 	}
+}
+
+// 多次运行的例子
+func Test_Multiple(t *testing.T) {
+	cron := New()
+	count := int32(0)
+
+	cron.Start()
+	max := int32(10)
+	for i := int32(0); i < max; i++ {
+		cron.AddFunc("* * * * * *", func() {
+			fmt.Printf("Every Second")
+			atomic.AddInt32(&count, 1)
+		})
+	}
+
+	time.Sleep(time.Duration(1.1 * float64(time.Second)))
+	cron.Stop()
+	assert.Equal(t, max, count)
 }
