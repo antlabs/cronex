@@ -6,8 +6,8 @@
 * 优化调度相关性能
 
 # cpu占用对比(越低越好)
-![cronex.png](https://github.com/guonaihong/images/blob/master/cronex/cronex.png)
-
+![cronex.png](https://github.com/guonaihong/images/blob/master/cronex/cronex.png)    
+测试代码位置 https://github.com/guonaihong/crontest
 # 快速开始
 ```go
 import(
