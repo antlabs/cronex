@@ -1,6 +1,8 @@
 # cronex
 ![Go CI](https://github.com/antlabs/cronex/actions/workflows/ci.yml/badge.svg?branch=master)
 
+[![codecov](https://codecov.io/gh/antlabs/cronex/branch/master/graph/badge.svg)](https://codecov.io/gh/antlabs/cronex)
+
 高性能cron库，相比目前使用得最多的cron，只是优化了性能。
 
 # 特性
